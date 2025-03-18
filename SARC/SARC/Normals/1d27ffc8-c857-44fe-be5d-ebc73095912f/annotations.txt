@@ -1,0 +1,2 @@
+id	submitter_id	entity_type	entity_id	category	classification	created_datetime	status	notes
+763c6168-9c21-59bf-a32b-ad7e7cefc66b	23922	sample	c69ac5db-43ea-4f28-a44a-d4c99dbe5e6f	Item does not meet study protocol	Notification	2015-01-22T00:00:00	Approved	Normal sample should not have shipped for methylation, please use exome and SNP only.

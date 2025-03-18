@@ -2,7 +2,9 @@ import pandas as pd
 import numpy as np
 import os
 from posixpath import join
-!unzip '/content/drive/MyDrive/sar.c/SARC.zip'
+
+
+
 passes = []
 for root,dirs,files in os.walk('/content/SARC'):
   for filename in files:
