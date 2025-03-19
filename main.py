@@ -1,16 +1,25 @@
-# This is a sample Python script.
+import tk
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+file = r'SARC'
+from parsing_catalogs import *
+from tkinter import *
+from tkinter import ttk
+import tkinter as tk
+from tkinter import filedialog
+'''passes = pars(file)
+data_dict = reading_file(passes)
+print(data_dict)
+print(passes)'''
 
 
-def print_hi(n):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+
+root = tk.Tk()
+button = tk.Button(root, text='Open', command=UploadAction)
+
+button.pack()
+
+root.mainloop()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#endregion
