@@ -1,28 +1,46 @@
-import tkinter
-from doctest import master
-from idlelib.searchengine import get_selection
 
-import pandas as pd
-import numpy as np
-import os
-import tkinter as tk
 from tkinter import filedialog
+import os
+import pandas as pd
+
+def browse_folder1():
+
+  global folder_path
+  folder_path = filedialog.askdirectory()
+  print(f"Выбрана папка: {folder_path}")
+
+def browse_folder():
+    # Открываем диалоговое окно для выбора папки
+    global folder_path
+    folder_path = filedialog.askdirectory()
+    print(f"Выбрана папка: {folder_path}")
+
+    # Проверяем, выбрана ли папка
+    if folder_path:
+        print("Содержимое папки:")
+        show_folder_contents(folder_path)
+
+        # Передаем путь к папке в функцию pars
+        passes = pars(folder_path)
+
+        # Обрабатываем найденные файлы
+        data = reading_file(passes)
+        print("Данные успешно обработаны:", data)
 
 
-def cancel_command(event):
-    pass
+def show_folder_contents(path):
+    # Получаем список всех файлов и подпапок
+    for filename in os.listdir(path):
+        file_path = os.path.join(path, filename)
+        if os.path.isfile(file_path):
+            print(f"Файл: {filename}")
+        elif os.path.isdir(file_path):
+            print(f"Папка: {filename}")
 
 
-def UploadAction(event=None):
-    filename = filedialog.Directory(master=None)
-    filedialog.FileDialog(master, title=None)
-    cancel_command(event=None)
-    print('Selected:', filename)
-
-
-def pars(file_path):
+def pars(folder_path):
     passes = []
-    for root, dirs, files in os.walk(file_path):
+    for root, dirs, files in os.walk(folder_path):
         for filename in files:
             root_filename = os.path.join(root, filename)
             if "parcel" not in root_filename:
@@ -44,6 +62,3 @@ def reading_file(passes):
                 print(f"Ошибка при обработке файла {file_path}: {e}")
     return data_dict
 
-
-'''final_df = pd.DataFrame(data_dict)
-data_dict[file_path]'''
