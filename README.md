@@ -1,4 +1,4 @@
-# app_parsing_directory_and_csv
+# app_parsing_directory_and_tsv
 # Описание программного продукта
 
 ## Назначение
