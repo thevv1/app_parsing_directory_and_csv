@@ -26,20 +26,9 @@ with open('result.json', 'w', encoding='utf-8') as json_file:
 print("Данные успешно сохранены в result.json")
 
 
-root = tk.Tk()
-root.title("Менеджер папок")
 
-browse_button = tk.Button(
-  root,
-  text="Выбрать папку",
-  command=browse_folder,
-  font=("Arial", 12),
-  padx=10,
-  pady=5
-)
-browse_button.pack(pady=20)
 
-root.mainloop()
+
 '''
 folder_path:Эта переменная хранит путь к выбранной папке. Она заполняется после вызова метода filedialog.askdirectory(), 
 который отображает диалоговое окно для выбора каталога. Позже этот путь передается другим функциям для обработки файлов в этой папке.
