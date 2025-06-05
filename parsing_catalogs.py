@@ -83,6 +83,7 @@ folder_path: Путь до папки, которую нужно обработ�
 
 def reading_file(passes):
     data_dict = {}
+    i = 0
     for file_path in passes:
         if ".tsv" in file_path:
             try:
@@ -90,7 +91,8 @@ def reading_file(passes):
                 if 'tpm_unstranded' not in df.columns:
                     raise ValueError(f"Столбец 'tpm_unstranded' отсутствует в файле {file_path}")
                 series = pd.to_numeric(df['tpm_unstranded'], errors='coerce')
-                data_dict[file_path] = series
+                data_dict[f'tpm_{i}'] = series
+                i += 1
             except Exception as e:
                 print(f"Ошибка при обработке файла {file_path}: {e}")
     return data_dict
