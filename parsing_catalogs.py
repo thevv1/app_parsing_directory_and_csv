@@ -88,9 +88,13 @@ def reading_file(passes):
         if ".tsv" in file_path:
             try:
                 df = pd.read_csv(file_path, sep='\t', skiprows=[0, 2, 3, 4, 5])
+
                 if 'tpm_unstranded' not in df.columns:
                     raise ValueError(f"Столбец 'tpm_unstranded' отсутствует в файле {file_path}")
                 series = pd.to_numeric(df['tpm_unstranded'], errors='coerce')
+                if 'gene_id' not in data_dict:
+                    data_dict['gene_id'] = df['gene_id']
+
                 data_dict[f'tpm_{i}'] = series
                 i += 1
             except Exception as e:
